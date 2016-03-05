@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test.html</title>
+    
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script src="js/jquery-2.1.3.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  </head>
+  
+  <form action="/Test_Model/image/upload.do" enctype="multipart/form-data" method="post">
+  	<input type="file" name="file"/>
+  	<input type="hidden" name="schoolID" value="12"/>
+  	<input type="hidden" name="location" value="front"/>
+  	<input type="submit"/>
+ </form>  
+  
+  
+  <script>
+  $(document).ready(function(){
+ 	 var json={"schoolID":"10"};
+ 	 $.ajax({
+          type: "POST",
+          contentType:"application/json;charset=utf-8",
+          url: "http://localhost:8080/Test_Model/user/addSchoolPraise.do",
+          data:JSON.stringify(json),
+          dataType:"json",
+          success: function(data){
+         	 $(".demo").html(data);
+          }
+            }); 
+  });
+  
+  
+  </script>
+  <body>
+    <h3 class="demo"></h3>
+  </body>
+</html>

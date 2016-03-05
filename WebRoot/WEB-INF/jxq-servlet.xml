@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:mvc="http://www.springframework.org/schema/mvc"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:cache="http://www.springframework.org/schema/cache"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/mvc
+         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+         http://www.springframework.org/schema/cache
+         http://www.springframework.org/schema/cache/spring-cache.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+         
+     <context:component-scan base-package="net.jxquan.controller,net.jxquan.filter" />
+     <cache:annotation-driven cache-manager="cacheManager"/>
+     <mvc:annotation-driven />
+     
+     <!-- 导入配置文件 需要在今后进行改动-->
+     <import resource="classpath*:net/jxquan/resource/**.xml"/>
+
+      <!-- ViewResolver -->  
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>  
+        <property name="prefix" value="/"/>  
+        <property name="suffix" value=".html"/>
+        
+    </bean> 
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="5242880"></property>  
+        <property name="maxInMemorySize" value="40960"></property>  
+   </bean> 
+   
+	<bean id="cacheManagerFactory"
+	    class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+	</bean>
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+	    <property name="cacheManager" ref="cacheManagerFactory" />
+	</bean>    
+   
+</beans>

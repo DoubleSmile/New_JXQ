@@ -1,0 +1,79 @@
+  <div class="col" ng-show="user.role==='school'">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">订单管理</h1>
+</div>
+      </div>
+    </div>
+    <!-- / main header -->
+
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      预约订单
+    </div>
+    <div class="table-responsive">
+      <table id="datatables" class="table table-striped b-t b-b">
+        <thead>
+          <tr>
+            <th  style="width:20%">联系人姓名</th>
+            <th  style="width:25%">联系电话</th>
+            <th  style="width:25%">预约时间</th>
+            <th  style="width:15%">本地/异地</th>
+            <th  style="width:15%">是否完成预约</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div class="row">
+            <div class="col-md-8">
+                <h2 class="page-header">
+                    确认预约
+                </h2>
+                <form name="confirm"  novalidate>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>学员姓名:</label>
+                            <input type="text" class="form-control" ng-model="contactName" name="name" id="contactName" required >
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>学员手机号:</label>
+                            <input type="text" class="form-control" ng-model="contactMobile" name="phone" id="contactMobile"  required >
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>学员预约号:</label>
+                            <input type="text" class="form-control" name="checknumber" ng-model="checkNumber" id="orderNumber" required>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="button" id="check" ng-click="checkOrder()" class="btn btn-primary">确认预约</button>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+</div>
+
+  </div>
+  
+  
+
+
+  <div class="text-center" ng-include="'tpl/denied.html'">
+    {% include 'denied.html' %}
+</div>
