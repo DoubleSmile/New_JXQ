@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <c3p0-config>
+	  <default-config> 
+	    <property name="driverClass">com.mysql.jdbc.Driver</property>
+	    <property name="user">root</property>
+	      <property name="jdbcUrl">jdbc:mysql://localhost:3306/jxq_029</property>
+	    <property name="password"></property> 
+	    <!--<property name="jdbcUrl">jdbc:mysql://localhost:3306/new_jxq</property>
+	    <property name="password">Ckm20JcairsituQB</property>-->
+	    <!-- Ckm20JcairsituQB-->
+	    <property name="initialPoolSize">30</property>
+	    <property name="maxIdleTime">180</property>
+	    <property name="maxPoolSize">100</property>
+	    <property name="minPoolSize">10</property>
+	    <property name="acquireIncrement">50</property>
+		<property name="autoCommitOnClose">false</property>
+		<property name="acquireRetryDelay" >1000</property>
+		<property name="acquireRetryAttempts" >30</property>
+		<property name="checkoutTimeout" >100</property>
+	   </default-config> 
+ </c3p0-config>
